@@ -5,7 +5,7 @@ from datetime import datetime
 
 
 def load_envvars():
-    folder = __file__.split('/')[0]
+    folder = __file__.rsplit('/', 1)[0]
 
     with open(os.path.join(folder, 'config.json'), 'rb') as f:
         env_vars = json.loads(f.read())
@@ -25,6 +25,7 @@ def main():
     response = requests.get(CUSTOM_PANEL_URL)
     if response.status_code != 200:
         return
+
 
     rig_status = response.json()['rigs'][ETHOS_MINERNAME]
     rig_hashrates = rig_status['miner_hashes'].split(' ')
