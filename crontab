@@ -1,0 +1,1 @@
+*/5 * * * * /usr/bin/python /home/ethos/ethos-gpu-maintainence/main.py
